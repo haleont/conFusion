@@ -13,6 +13,7 @@ import 'hammerjs';
 import { MenuComponent } from './menu/menu.component';
 import { DishdetailComponent } from './dishdetail/dishdetail.component';
 import { DishService } from './services/dish.service';
+import { PromotionService } from './services/promotion.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
@@ -41,7 +42,7 @@ import { ContactComponent } from './contact/contact.component';
     MatButtonModule,
     AppRoutingModule
   ],
-  providers: [DishService],
+  providers: [DishService, PromotionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
