@@ -4,7 +4,6 @@ import { Dish } from '../shared/dish'
 import { DishService } from '../services/dish.service'
 import { Params, ActivatedRoute } from '@angular/router'
 import { Location } from '@angular/common' 
-import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dishdetail',
@@ -22,12 +21,9 @@ export class DishdetailComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
     this.dishservice.getDish(id)
-    .then (dish => this.dish = dish)
+    .subscribe (dish => this.dish = dish)
   }
   goBack(): void {
     this.location.back();
-  }
-  getDishIds(): Observable<string[] | any> {
-    return of(DISHES.map(dish => dish.id ));
   }
 }
